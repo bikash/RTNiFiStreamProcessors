@@ -21,6 +21,7 @@ Deploy/
 ipch/
 .metadata/
 install/
+*.so*
 
 GeneratedFiles/
 .metadata/

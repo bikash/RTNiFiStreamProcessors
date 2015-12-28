@@ -211,18 +211,17 @@ public class GetMQTTVideoProcessor extends AbstractProcessor implements MqttCall
             byte[] bytes = new byte[0];
             HexBinaryAdapter adapter = new HexBinaryAdapter();
             try {
-                bytes = adapter.unmarshal(obj.get("video").toString());
+                bytes = adapter.unmarshal(obj.remove("video").toString());
             } catch(Exception e) {
                 getLogger().error("Video was not in correct hex string format");
                 continue;
             }
             final byte[] video = bytes;
-            final JSONObject metadata = new JSONObject();
- 
-            metadata.put("deviceID", originalDeviceID);
-            metadata.put("timestamp", originalTimestamp);
-            metadata.put("length", bytes.length);
             
+            // obj now just contains the metadata but no video data
+            
+            final JSONObject metadata = obj;
+             
             // work out the video filename
             
             Calendar originalCalendar = new GregorianCalendar();
