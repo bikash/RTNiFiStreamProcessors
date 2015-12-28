@@ -14,3 +14,4 @@
 
 org.richardstech.nifi.processors.GetMQTTSensorProcessor
 org.richardstech.nifi.processors.GetMQTTVideoProcessor
+org.richardstech.nifi.processors.GetMQTTAudioProcessor

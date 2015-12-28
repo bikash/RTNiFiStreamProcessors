@@ -166,9 +166,8 @@ public class GetMQTTVideoProcessor extends AbstractProcessor implements MqttCall
             getLogger().info("Connecting to broker: " + broker);
             mqttClient.connect(connOpts);
             mqttClient.subscribe(topic, 0);
-         } catch(MqttException me) {
+        } catch(MqttException me) {
             getLogger().error("msg "+me.getMessage());
-            me.printStackTrace();
         }
     }
  
